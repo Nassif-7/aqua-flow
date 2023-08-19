@@ -1,0 +1,61 @@
+// this is a resetting to the styling of whole site, it shouldn't be readable
+
+@font-face {
+  font-family: IBMPlex-Thin;
+  src: url(../assets/fonts/IBMPlexSansArabic-Thin.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-ExtraLight;
+  src: url(../assets/fonts/IBMPlexSansArabic-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-Light;
+  src: url(../assets/fonts/IBMPlexSansArabic-Light.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-Regular;
+  src: url(../assets/fonts/IBMPlexSansArabic-Regular.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-Medium;
+  src: url(../assets/fonts/IBMPlexSansArabic-Medium.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-SemiBold;
+  src: url(../assets/fonts/IBMPlexSansArabic-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: IBMPlex-Bold;
+  src: url(../assets/fonts/IBMPlexSansArabic-Bold.ttf);
+}
+
+* {
+  font-family: 'IBMPlex-Regular';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+a:hover {
+  text-decoration: none;
+}

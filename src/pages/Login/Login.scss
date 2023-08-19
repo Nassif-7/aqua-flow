@@ -1,0 +1,67 @@
+@use '../../style/variables' as vars;
+@use '../../style/mixins' as mix;
+
+.login {
+  height: 1080px;
+
+  &__banar {
+    @include mix.flexArea(row, center, center);
+    width: 50%;
+    background: var(--ss, linear-gradient(176deg, #00466a 0%, #00231e 100%));
+  }
+
+  &__container {
+    width: 843px;
+    @include mix.flexArea(row, center, center);
+
+    .login__form {
+      @include mix.flexArea(column, unset, center);
+      direction: rtl;
+
+      &__subheader {
+        text-align: start;
+        @include mix.text(vars.$color-black, vars.$text-size-micro-x, unset, normal);
+        font-family: 'IBMPlex-SemiBold';
+        margin-bottom: vars.$spacing-xx-atomic;
+      }
+
+      &__header {
+        text-align: start;
+        @include mix.text(vars.$color-black, 42px, unset, normal);
+        font-family: 'IBMPlex-Bold';
+        margin-bottom: vars.$spacing-x-atomic;
+      }
+
+      &__input {
+        // direction: rtl;
+        padding-right: 0.5rem;
+        margin-bottom: 2rem;
+        width: 387px;
+        height: 50px;
+        top: 469px;
+        left: 228px;
+        border-radius: 5px;
+        border: 1px solid black;
+        }
+
+      &__btn {
+        @include mix.button(vars.$button-color, 648px, 258px);
+        width: 327px;
+        height: 50px;
+        margin:0.5rem 2rem 0 0;
+      }
+
+      &__submit {
+      }
+
+      &__link{
+        line-height: 5rem;
+        text-align: center;
+        :hover{
+          text-decoration:underline;
+        }
+      }
+    
+    }
+  }
+}
