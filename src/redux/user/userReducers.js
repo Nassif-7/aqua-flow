@@ -1,4 +1,5 @@
 import {
+  FETCH_USER,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILURE,
@@ -10,11 +11,18 @@ import {
 const initialState = {
   loading: false,
   user: {},
+  token: '',
   error: ''
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FETCH_USER:
+      return {
+        ...state,
+        user: action.payload
+      };
+
     case USER_LOGIN_REQUEST:
       return {
         ...state,
@@ -22,14 +30,14 @@ const userReducer = (state = initialState, action) => {
       };
     case USER_LOGIN_SUCCESS:
       return {
+        ...state,
         loading: false,
-        user: action.payload,
-        error: ''
+        token: action.payload
       };
     case USER_LOGIN_FAILURE:
       return {
+        ...state,
         loading: false,
-        user: {},
         error: action.payload
       };
 
