@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Login.scss';
-import { Link, redirect } from 'react-router-dom';
-import { fetchUser, login } from '../../redux/user/userActions';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from '../../redux/user/userActions';
 import { connect } from 'react-redux';
 
 function Login({ login }) {
   const [credentials, setCredentials] = useState({ userName: '', password: '' });
+  const navigate = useNavigate();
 
   function handleInputChange(event) {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -14,8 +15,7 @@ function Login({ login }) {
   function handleLogin(event) {
     event.preventDefault();
     login(credentials);
-    fetchUser();
-    redirect('/');
+    navigate('/');
   }
 
   return (
@@ -23,6 +23,7 @@ function Login({ login }) {
       <div className='flex-shrink-0 login__banar'>
         <img src='/images/logo.png' alt='Best Aqua Solution' />
       </div>
+
       <div className='login__container'>
         <form className='login__form' onSubmit={handleLogin}>
           <span className='login__form__subheader'>مرحباً مجدداً</span>
@@ -68,8 +69,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (credentials) => dispatch(login(credentials)),
-    fetchUser: () => dispatch(fetchUser())
+    login: (credentials) => dispatch(login(credentials))
   };
 };
 

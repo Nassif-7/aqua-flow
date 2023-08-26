@@ -33,7 +33,6 @@
       }
 
       &__input {
-        // direction: rtl;
         padding-right: 0.5rem;
         margin-bottom: 2rem;
         width: 387px;
@@ -42,26 +41,23 @@
         left: 228px;
         border-radius: 5px;
         border: 1px solid black;
-        }
+      }
 
       &__btn {
         @include mix.button(vars.$button-color, 648px, 258px);
         width: 327px;
         height: 50px;
-        margin:0.5rem 2rem 0 0;
+        margin: 0.5rem 2rem 0 0;
+        font-size: vars.$text-size-micro;
       }
 
-      &__submit {
-      }
-
-      &__link{
+      &__link {
         line-height: 5rem;
         text-align: center;
-        :hover{
-          text-decoration:underline;
+        :hover {
+          text-decoration: underline;
         }
       }
-    
     }
   }
 }

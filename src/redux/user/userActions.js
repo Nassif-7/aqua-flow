@@ -8,31 +8,33 @@ import {
   USER_RESETPASSWORD_SUCCESS,
   USER_RESETPASSWORD_FAILURE
 } from './userTypes';
-import { API_BASE_URL } from '../../global';
 
-export const fetchUser = () => {
-  return (dispatch) => {
-    axios
-      .get(`${API_BASE_URL}/auth/me`)
-      .then((response) => {
-        dispatch(fetch_user_request(response.data.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-};
+// import { API_BASE_URL } from '../../global';
 
 export const login = (credintials) => {
   return (dispatch) => {
     dispatch(user_login_request());
     axios
-      .post(`${API_BASE_URL}/auth/login`, credintials)
-      .then((response) => {
-        dispatch(user_login_success(response.data.data));
+      .post(`/auth/login`, credintials)
+      .then((responseLogin) => {
+        dispatch(user_login_success(responseLogin.data.data));
+        localStorage.setItem('token', responseLogin.data.data);
+        axios
+          .get(`/auth/me`, {
+            headers: {
+              Authorization: `Bearer ${responseLogin.data.data}`
+            }
+          })
+          .then((responseFetchUser) => {
+            dispatch(fetch_user_request(responseFetchUser.data.data));
+            localStorage.setItem('user', responseFetchUser.data.data);
+          })
+          .catch((errorFetchUser) => {
+            console.log(errorFetchUser);
+          });
       })
-      .catch((error) => {
-        dispatch(user_login_failure(error.message));
+      .catch((errorLogin) => {
+        dispatch(user_login_failure(errorLogin.message));
       });
   };
 };
@@ -41,7 +43,7 @@ export const resetPassword = (newPassword) => {
   return (dispatch) => {
     dispatch(user_resetpassword_request());
     axios
-      .post(`${API_BASE_URL}/reset-password`, { newPassword })
+      .post(`/reset-password`, { newPassword })
       .then((response) => {
         dispatch(user_resetpassword_success());
       })

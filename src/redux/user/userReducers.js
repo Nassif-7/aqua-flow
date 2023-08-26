@@ -10,8 +10,8 @@ import {
 
 const initialState = {
   loading: false,
-  user: {},
-  token: '',
+  // user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {},
+  token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
   error: ''
 };
 

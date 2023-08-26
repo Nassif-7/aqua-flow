@@ -1,0 +1,43 @@
+@use '../../../style/variables' as vars;
+@use '../../../style/mixins' as mix;
+
+.bodycard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    direction: rtl;
+    width: 341px;
+    height: 326px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    border: 2px solid #F3F3F3;
+    background: #FFF;
+    /* Semi Bold/S3 */
+    font-family: IBM Plex Sans Arabic;
+
+    &__image{
+        width: 106px;
+        height: 106px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        // background: #BFA7F9;
+        img{
+            display: block;
+            margin: 32.39px;
+            
+        }
+    }
+
+    &__description{
+        color: #000;
+        text-align: right;
+
+        
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+
+    }
+}
